@@ -4385,9 +4385,6 @@ of playing 100carats, therefore the questions is : how to search for some random
 
 * ConfusPlay
 
-  Haha
-  
-
 ** ConfusPlay 1
 
   Correct this =all_words= program which input from some length =(n : nat)= and some
