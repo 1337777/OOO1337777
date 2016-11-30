@@ -1,6 +1,7 @@
 index
 
 « TOUCH »
+TOUCH2
 
 #+BEGIN_SRC coq :exports both
 Print nat.
