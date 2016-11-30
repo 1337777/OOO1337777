@@ -5,4 +5,4 @@ Print nat.
 Print nat_rect.
 #+END_SRC
 
-« TOUCH 0 »
+« TOUCH 1 »
