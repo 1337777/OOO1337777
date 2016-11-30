@@ -2,4 +2,4 @@
 
 TOP
 
-[[init.org]]
+[[file:init.org]]
