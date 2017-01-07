@@ -3,7 +3,8 @@
 
 echo -n -e "\n--8<--COQ--${1}--COQ-->8--\n" ;
 pgrep -d ' ' -f 'makecoq\.bash' | sed "s/\\b${$}\\b//" |
-sed "s/\\b${BASHPID}\\b//" | sed "s/\\b${PPID}\\b//" | xargs ./anywait.bash ;
+sed "s/\\b${BASHPID}\\b//" | sed "s/\\b${PPID}\\b//" > .pids_coq ;
+cat .pids_coq | xargs ./anywait.bash ;
 
 cd ~/OOO1337777/repocache ;
 
