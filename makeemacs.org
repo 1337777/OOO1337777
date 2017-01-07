@@ -7,7 +7,8 @@ if [[ -e ./.touched ]] ; then
     echo -n -e "\n--8<--EMACS--${1}--EMACS-->8--\n" ;
     touched=$( cat ./.touched | xargs echo ) ;
     rm ./.touched ;
-    pgrep -d ' ' -f 'makeemacs\.bash' | sed "s/\\b${$}\\b//" | xargs ./anywait.bash ;
+    pgrep -d ' ' -f 'makeemacs\.bash' | sed "s/\\b${$}\\b//" |
+    sed "s/\\b${BASHPID}\\b//" | sed "s/\\b${PPID}\\b//" | xargs ./anywait.bash ;
 
     if [[ -e ./.emacsgit ]] ; then
     git checkout master ;
