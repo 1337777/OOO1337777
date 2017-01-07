@@ -80,8 +80,8 @@ if (( $comm > 0 )) ; then
     cp ./.touched "./.${nowdate}.touched" ;
 
     # crontab every 15 mins * 4 touches in queue -> more than 1h old processes
-    if (( $(pgrep --count -f 'makeemacs\.bash.+|makecoq\.bash.+') >= 5 )) ; then
-	pkill --oldest -f 'makecoq\.bash.+' ; pkill --oldest -f 'makeemacs\.bash.+' ;
+    if (( $(pgrep --count -f 'makeemacs\.bash|makecoq\.bash') >= 5 )) ; then
+	pkill --oldest -f 'makecoq\.bash' ; pkill --oldest -f 'makeemacs\.bash' ;
     fi
     
     ./makeemacs.bash "${nowdate}" & disown
