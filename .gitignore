@@ -1,5 +1,7 @@
 *
 !*.org
 !*.v
+!/code/style.css
 /theindex.org
 /sitemap.org
+/sources/
