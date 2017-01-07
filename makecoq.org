@@ -1,10 +1,14 @@
-#+BEGIN_SRC bash
+#+BEGIN_SRC bash :exports both :results silent :tangle yes
 #!/bin/bash
 
 echo -n -e "\n--8<--COQ--${1}--COQ-->8--\n" ;
-pgrep -d ' ' -f '\.makecoq\.sh.+' | sed "s/\\b${$}\\b//" | xargs ./.anywait.sh ;
+pgrep -d ' ' -f 'makecoq\.bash.+' | sed "s/\\b${$}\\b//" | xargs ./anywait.bash ;
 
-cd /home/ubuntu/OOO1337777/repocache ;
+cd ~/OOO1337777/repocache ;
+
+if [[ ! -e ./.coqgit ]] ; then
+rm ./.coqignore ;
+fi
 
 touch ./.coqignore ;
 

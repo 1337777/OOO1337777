@@ -1,4 +1,4 @@
-#+BEGIN_SRC bash
+#+BEGIN_SRC bash :exports both :results silent :tangle yes
 #!/bin/bash
 
 for pid in "$@"; do

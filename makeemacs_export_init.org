@@ -1,4 +1,4 @@
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :exports both :results silent :tangle yes
 
 ;; this modified org-mode ob-coq and coq-inferior.el code is
 ;; from http://alan.petitepomme.net/tips/executing_coq.html
@@ -11,7 +11,7 @@
 
 
 (require 'package)
-(add-to-list 'load-path "/home/ubuntu/.emacs.d/elpa")
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa"))
 ;; for package htmlize
 ;; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -22,7 +22,7 @@
 ;; Open .v files with Proof-General's coq-mode
 ;;(require 'proof-site)
 ;; Open .v files with Proof General's Coq mode
-(load "/home/ubuntu/.emacs.d/lisp/PG/generic/proof-site")
+(load (expand-file-name "~/.emacs.d/lisp/PG/generic/proof-site"))
 
 (require 'org)
 (require 'ob)
@@ -42,7 +42,8 @@
 (setq org-html-head-include-default-style nil)
 (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./code/style.css\"/>")
 (setq org-html-postamble nil)
-(setq org-export-time-stamp-file nil)
+(setq org-export-time-stamp-file nil
+      org-footnote-section "Reviews")
 
 (require 'comint)
 
@@ -136,7 +137,7 @@ create one.  Return the initialized session."
   (sit-for 0.1)
   (get-buffer org-babel-coq-buffer))
 
-(setq coq-program-name "coqtop -R /home/ubuntu/OOO1337777/repocache OOO1337777")
+(setq coq-program-name (concat "coqtop -R " (expand-file-name "~/OOO1337777/repocache") " OOO1337777"))
 
 #+END_SRC
 

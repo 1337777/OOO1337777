@@ -1,7 +1,7 @@
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :exports both :results silent :tangle yes
 
 (require 'package)
-(add-to-list 'load-path "/home/ubuntu/.emacs.d/elpa")
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa"))
 ;; for package htmlize
 ;; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -14,7 +14,7 @@
 (require 'ox-org)
 
 ;;;;;;;;;;;;;;;;;change export;;;;;;;;;;;;;;;;;;;
-(load "/home/ubuntu/OOO1337777/repocache/.makeemacs_export_init.el")
+(load (expand-file-name "~/OOO1337777/repocache/makeemacs_export_init.el"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;(show-paren-mode 1)
@@ -70,8 +70,8 @@
 ;; re-export everything regardless of whether or not it's been modified
 ;; (setq org-publish-use-timestamps-flag nil)
 
-(setq worg-base "/home/ubuntu/OOO1337777/repoimport/")
-(setq worg-htmlroot "/home/ubuntu/OOO1337777/repocache/")
+(setq worg-base (expand-file-name "~/OOO1337777/repoimport/"))
+(setq worg-htmlroot (expand-file-name "~/OOO1337777/repocache/"))
 (setq worg-base-directory worg-base)
 (setq worg-base-style-directory (concat worg-base "style/"))
 (setq worg-base-code-directory (concat worg-base "code/"))
@@ -163,7 +163,7 @@
      (set-org-publish-project-alist)
      (message "Emacs %s" emacs-version)
      (org-version)
-     (org-publish-project "worg")
+     (ignore-errors (org-publish-project "worg"))
      (kill-emacs)))
 
 (defun publish-orgweb nil
